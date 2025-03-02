@@ -20,13 +20,11 @@ public class World {
     }
 
     public boolean nextRoom(boolean a){
-        try{
-            if (position<rooms.size()&&a){
-                position++;
-                System.out.println("You have entered " + getCurrentRoom());
-                return true;
-            }
-        }catch (Exception e){
+        if (position<rooms.size()&&a){
+            position++;
+            System.out.println("You have entered " + getCurrentRoom());
+            return true;
+        }else {
             System.out.println("You cant go to the next location!");
         }
         return false;

@@ -8,5 +8,6 @@ public class Main {
         world.nextRoom(true);
         world.nextRoom(true);
         world.nextRoom(false);
+        System.out.println(world.getCurrentRoom());
     }
 }
