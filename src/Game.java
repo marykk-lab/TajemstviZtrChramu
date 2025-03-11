@@ -11,6 +11,8 @@ public class Game extends Command{
 
     Rooms rooms = new Rooms();
     Inventory inventory = new Inventory();
+    Items items = new Items();
+    World world = new World();
 
     public boolean takeItem(){
         return true;

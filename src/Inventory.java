@@ -1,5 +1,5 @@
 public class Inventory extends Command{
-    String[] items = new String[5];
+    Items[] items = new Items[5];
     @Override
     public String execute() {
         return null;
