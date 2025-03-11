@@ -1,5 +1,4 @@
-public class Inventory extends Command{
-    String[] items = new String[5];
+public class Help extends Command{
     @Override
     public String execute() {
         return null;
@@ -8,9 +7,5 @@ public class Inventory extends Command{
     @Override
     public boolean exit() {
         return false;
-    }
-
-    public boolean addItem(Items item){
-        return true;
     }
 }

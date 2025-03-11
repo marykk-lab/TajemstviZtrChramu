@@ -8,7 +8,7 @@ public class Console {
 
     private void initialization(){};
 
-    private boolean provedPrikaz(){return true;};
+    private boolean makeAction(){return true;};
 
     public void start(){};
 }
