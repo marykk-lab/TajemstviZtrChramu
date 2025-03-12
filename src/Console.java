@@ -4,11 +4,41 @@ import java.util.Scanner;
 public class Console {
     Scanner sc = new Scanner(System.in);
     private boolean exit = false;
-    private HashMap<String, Command> prikazy;
+    private HashMap<String, Command> commands;
+    Game game = new Game();
 
-    private void initialization(){};
+    public Console() {
+        this.commands = new HashMap<>();
+    }
 
-    private boolean makeAction(){return true;};
+    private void initialization(){
+        commands.put("help", new Help());
+        commands.put("stop", new Exit());
+        commands.put("mluvit", new InteractionwNPC());
+        commands.put("jit", new World());
+    };
 
-    public void start(){};
+    private boolean makeAction(){
+        System.out.println(">> ");
+        String command = sc.next();
+        command.toLowerCase();
+        if (commands.containsKey(command)){
+            System.out.println(">> "+commands.get(command).execute());
+            exit = commands.get(command).exit();
+        }else{
+            System.out.println("Wrong command.");
+        }
+        return true;
+    };
+
+    public void start(){
+        initialization();
+        try{
+            do {
+                makeAction();
+            }while (!exit);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    };
 }

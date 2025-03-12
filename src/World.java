@@ -3,7 +3,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class World {
+public class World extends Command{
+    @Override
+    public String execute() {
+        nextRoom(true);
+        return "You`ve entered " + getCurrentRoom();
+    }
+
+    @Override
+    public boolean exit() {
+        return false;
+    }
+
     private LinkedList<String> rooms = new LinkedList<>();
     private int position=0;
 

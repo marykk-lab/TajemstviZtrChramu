@@ -5,9 +5,7 @@ public class Main {
 
         World world = new World();
         world.loadMap();
-        world.nextRoom(true);
-        world.nextRoom(true);
-        world.nextRoom(false);
-        System.out.println(world.getCurrentRoom());
+        Console c = new Console();
+        c.start();
     }
 }
