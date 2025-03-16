@@ -42,6 +42,9 @@ public class World extends Command{
     }
 
     public String getCurrentRoom(){
+        if (rooms.isEmpty()) {
+            return "No rooms available!";
+        }
         return rooms.get(position);
     }
 }

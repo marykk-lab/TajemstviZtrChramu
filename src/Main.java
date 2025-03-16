@@ -5,6 +5,7 @@ public class Main {
 
         World world = new World();
         world.loadMap();
+        System.out.println(world.getCurrentRoom());
         Console c = new Console();
         c.start();
     }

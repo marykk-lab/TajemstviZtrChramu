@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Inventory extends Command{
-    Items[] items = new Items[5];
+    private ArrayList<Items> playersitems = new ArrayList<>();
+
+
     @Override
     public String execute() {
-        return null;
+        return toString();
     }
 
     @Override
@@ -11,6 +16,17 @@ public class Inventory extends Command{
     }
 
     public boolean addItem(Items item){
+        if (item!=null && playersitems.size()<5){
+            playersitems.add(item);
+        }
         return true;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "playersitems=" + playersitems +
+                '}';
     }
 }
