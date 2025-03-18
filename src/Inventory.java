@@ -22,6 +22,32 @@ public class Inventory extends Command{
         return true;
     }
 
+    public boolean removeItem(String item){
+        if (item!=null){
+            for (Items i : playersitems){
+                if (i.getItemName().toLowerCase().equals(item)){
+                    playersitems.remove(i);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Items getItem(String item){
+        if (item!=null){
+            for (Items i : playersitems){
+                if (i.getItemName().toLowerCase().equals(item)){
+                    return i;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Items> getPlayersitems() {
+        return playersitems;
+    }
 
     @Override
     public String toString() {

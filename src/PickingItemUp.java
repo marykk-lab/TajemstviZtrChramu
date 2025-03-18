@@ -3,8 +3,9 @@ import java.util.HashMap;
 public class PickingItemUp extends Command{
     @Override
     public String execute() {
-        pickupItem();
-        return "You've picked up the item.";
+        if (pickupItem())
+            return "You've picked up the item.";
+        return "You have nothing to pick up:>";
     }
 
     @Override
@@ -24,8 +25,23 @@ public class PickingItemUp extends Command{
         items.put("Entrance hall", new Items("Torch", "Lights your way."));
     }
 
-    public boolean pickupItem(){
-        inventory.addItem(items.get(world.getCurrentRoom()));
-        return true;
+    public boolean pickupItem() {
+        Items item = items.get(world.getCurrentRoom());
+        if (items.size()<5) {
+            if (item != null && inventory.addItem(item)) {
+                items.remove(world.getCurrentRoom());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addItem(Items item) {
+        if (item!= null){
+        if (!items.containsKey(world.getCurrentRoom())) {
+            items.put(world.getCurrentRoom(), item);
+            return true;
+        }}
+        return false;
     }
 }

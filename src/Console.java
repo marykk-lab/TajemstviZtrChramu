@@ -7,12 +7,14 @@ public class Console {
     private HashMap<String, Command> commands;
     private World world;
     private Inventory inventory;
+    private PickingItemUp pickingItemUp;
 
 
     public Console() {
         this.commands = new HashMap<>();
         this.world = new World();
         this.inventory = new Inventory();
+        this.pickingItemUp = new PickingItemUp(world, inventory);
     }
 
 
@@ -21,16 +23,16 @@ public class Console {
         commands.put("stop", new Exit());
         commands.put("talk", new InteractionwNPC());
         commands.put("move", world);
-        commands.put("pick up", new PickingItemUp(world, inventory));
+        commands.put("pick up", pickingItemUp);
         commands.put("inventory", inventory);
         commands.put("use item", new UseItem());
-        commands.put("drop item", new DropItem());
+        commands.put("drop item", new DropItem(inventory, pickingItemUp));
     };
 
     private boolean makeAction(){
-        System.out.println(">> ");
+        System.out.print(">> ");
         String command = sc.nextLine();
-        command.toLowerCase();
+        command = command.toLowerCase();
         if (commands.containsKey(command)){
             System.out.println(">> "+commands.get(command).execute());
             exit = commands.get(command).exit();
