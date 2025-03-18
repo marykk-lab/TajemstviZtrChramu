@@ -1,7 +1,7 @@
 public class Help extends Command{
     @Override
     public String execute() {
-        return null;
+        return "Commands: ...";
     }
 
     @Override

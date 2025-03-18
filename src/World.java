@@ -2,11 +2,25 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class World extends Command{
+    Scanner sc = new Scanner(System.in);
     @Override
     public String execute() {
-        nextRoom(true);
+        System.out.print("Where do you want to move? \n 1) next room\n 2) previous room\n >> ");
+        String command = sc.nextLine();
+        command = command.toLowerCase();
+        switch (command){
+            case "1":
+                nextRoom(true);
+                break;
+            case "2":
+                previousRoom();
+                break;
+            default:
+                return "Wrong choice!";
+        }
         return "You`ve entered " + getCurrentRoom();
     }
 
@@ -33,10 +47,16 @@ public class World extends Command{
     public boolean nextRoom(boolean a){
         if (position<rooms.size()&&a){
             position++;
-            System.out.println("You have entered " + getCurrentRoom());
             return true;
         }else {
             System.out.println("You cant go to the next location!");
+        }
+        return false;
+    }
+    public boolean previousRoom(){
+        if (position>0){
+            position--;
+            return true;
         }
         return false;
     }

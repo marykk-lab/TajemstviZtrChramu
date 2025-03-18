@@ -45,6 +45,15 @@ public class Inventory extends Command{
         return null;
     }
 
+    public boolean ifItemExists(String item){
+        for (Items i : playersitems){
+            if (i.getItemName().equals(item)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Items> getPlayersitems() {
         return playersitems;
     }

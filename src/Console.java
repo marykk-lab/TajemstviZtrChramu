@@ -21,16 +21,17 @@ public class Console {
     private void initialization(){
         commands.put("help", new Help());
         commands.put("stop", new Exit());
-        commands.put("talk", new InteractionwNPC());
+        commands.put("talk", new InteractionwNPC(world));
         commands.put("move", world);
         commands.put("pick up", pickingItemUp);
         commands.put("inventory", inventory);
-        commands.put("use item", new UseItem());
+        commands.put("use item", new UseItem(inventory));
         commands.put("drop item", new DropItem(inventory, pickingItemUp));
+        commands.put("solve riddle", new Riddle(world));
     };
 
     private boolean makeAction(){
-        System.out.print(">> ");
+        System.out.print("Write your command: \n>> ");
         String command = sc.nextLine();
         command = command.toLowerCase();
         if (commands.containsKey(command)){

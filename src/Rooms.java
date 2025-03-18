@@ -1,9 +1,6 @@
 import java.util.HashMap;
 
 public class Rooms extends Command{
-    HashMap<String, Riddle> riddles;
-    HashMap<String, NPC> npcs;
-    HashMap<String, Items> items;
 
     @Override
     public String execute() {
@@ -15,7 +12,11 @@ public class Rooms extends Command{
         return false;
     }
 
-    public void EntranceHall(){
+    public String EntranceHall(boolean a){
+        if (a){
+            return "You see walls with some texts, exit...";
+        }
+        return "You see darkness.";
     }
 
     public void SalwObelisks(){
@@ -38,8 +39,4 @@ public class Rooms extends Command{
 
     public void SecretExit(){
     }
-
-
-
-
 }
