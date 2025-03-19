@@ -60,8 +60,6 @@ public class Inventory extends Command{
 
     @Override
     public String toString() {
-        return "Inventory{" +
-                "playersitems=" + playersitems +
-                '}';
+        return "Inventory:"  + playersitems;
     }
 }

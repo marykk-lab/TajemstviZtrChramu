@@ -33,7 +33,7 @@ public class UseItem extends Command{
 
     public boolean torch(){
         if (inventory.ifItemExists("Torch")){
-            rooms.EntranceHall(true);
+            System.out.println(rooms.EntranceHall(true));
             return true;
         }
         return false;

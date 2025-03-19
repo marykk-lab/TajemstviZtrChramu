@@ -28,6 +28,7 @@ public class Console {
         commands.put("use item", new UseItem(inventory));
         commands.put("drop item", new DropItem(inventory, pickingItemUp));
         commands.put("solve riddle", new Riddle(world));
+        commands.put("start", new Rooms());
     };
 
     private boolean makeAction(){
