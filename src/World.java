@@ -13,7 +13,12 @@ public class World extends Command{
         command = command.toLowerCase();
         switch (command){
             case "1":
-                nextRoom(true);
+                if (riddle.isSolved()) {
+                    nextRoom(true);
+                    riddle.setSolved();
+                }else {
+                    nextRoom(false);
+                }
                 break;
             case "2":
                 previousRoom();
@@ -31,6 +36,11 @@ public class World extends Command{
 
     private LinkedList<String> rooms = new LinkedList<>();
     private int position=0;
+    private Riddle riddle;
+
+    public World(Riddle riddle) {
+        this.riddle = riddle;
+    }
 
     public boolean loadMap(){
         try(BufferedReader br = new BufferedReader(new FileReader("rooms.txt"))){
@@ -45,10 +55,13 @@ public class World extends Command{
     }
 
     public boolean nextRoom(boolean a){
-        if (position<rooms.size()&&a){
+        if (position<7&&a){
             position++;
             return true;
-        }else {
+        } else if (position==7&&a) {
+            System.out.println("You won!");
+            System.exit(0);
+        } else {
             System.out.println("You cant go to the next location!");
         }
         return false;
@@ -66,5 +79,12 @@ public class World extends Command{
             return "No rooms available!";
         }
         return rooms.get(position);
+    }
+
+    public World() {
+    }
+
+    public void setRiddle(Riddle riddle) {
+        this.riddle = riddle;
     }
 }

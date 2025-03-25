@@ -2,10 +2,6 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
-        World world = new World();
-        world.loadMap();
-        System.out.println(world.getCurrentRoom());
         Console c = new Console();
         c.start();
     }

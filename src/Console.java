@@ -8,11 +8,14 @@ public class Console {
     private World world;
     private Inventory inventory;
     private PickingItemUp pickingItemUp;
+    private Riddle riddle;
 
 
     public Console() {
         this.commands = new HashMap<>();
         this.world = new World();
+        this.riddle = new Riddle(world);
+        this.world.setRiddle(riddle);
         this.inventory = new Inventory();
         this.pickingItemUp = new PickingItemUp(world, inventory);
     }
@@ -27,7 +30,7 @@ public class Console {
         commands.put("inventory", inventory);
         commands.put("use item", new UseItem(inventory));
         commands.put("drop item", new DropItem(inventory, pickingItemUp));
-        commands.put("solve riddle", new Riddle(world));
+        commands.put("solve riddle", riddle);
         commands.put("start", new Rooms());
     };
 
@@ -44,8 +47,14 @@ public class Console {
         return true;
     };
 
+    public String getStartingText(){
+        return "Write [start] to start the game.";
+    }
+
     public void start(){
         initialization();
+        world.loadMap();
+        System.out.println(getStartingText());
         try{
             do {
                 makeAction();
