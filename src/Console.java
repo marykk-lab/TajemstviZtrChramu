@@ -13,10 +13,10 @@ public class Console {
 
     public Console() {
         this.commands = new HashMap<>();
-        this.world = new World();
-        this.riddle = new Riddle(world);
-        this.world.setRiddle(riddle);
         this.inventory = new Inventory();
+        this.world = new World();
+        this.riddle = new Riddle(world, pickingItemUp, inventory);
+        this.world.setRiddle(riddle);
         this.pickingItemUp = new PickingItemUp(world, inventory);
     }
 

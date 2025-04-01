@@ -23,11 +23,9 @@ public class PickingItemUp extends Command{
         world.loadMap();
         this.items = new HashMap<>();
         items.put("Entrance hall", new Items("Torch", "Lights your way."));
-        items.put("Sal with obelisks", new Items("Diary of a Lost Explorer", "Diary that contains hints for puzzles"));
+        items.put("Library", new Items("Diary of a Lost Explorer", "Diary that contains hints for puzzles"));
         items.put("Altar of Sacrifice", new Items("Emerald Key", "Some key..."));
         items.put("Son of Water", new Items("Sacrificial dagger", "Dagger for sacrificing?"));
-        items.put("Library", new Items("Rope", "Strong rope that you can use for escaping."));
-        items.put("Reliquary", new Items("Golden Relic", "The key!"));
     }
 
     public boolean pickupItem() {
