@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class InteractionwNPC extends Command{
+public class InteractionwNPC extends Command {
     @Override
     public String execute() {
         if (startTalkingwNPC()!=null){

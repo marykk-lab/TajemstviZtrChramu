@@ -1,4 +1,4 @@
-public class Exit extends Command{
+public class Exit extends Command {
     @Override
     public String execute() {
         return "You are pussy, come back when you are ready.\nApplication was ended";

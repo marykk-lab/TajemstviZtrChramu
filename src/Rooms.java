@@ -1,6 +1,4 @@
-import java.util.HashMap;
-
-public class Rooms extends Command{
+public class Rooms extends Command {
     private int a=0;
 
     @Override

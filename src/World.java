@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class World extends Command{
+public class World extends Command {
     Scanner sc = new Scanner(System.in);
     @Override
     public String execute() {
@@ -87,4 +87,5 @@ public class World extends Command{
     public void setRiddle(Riddle riddle) {
         this.riddle = riddle;
     }
+
 }

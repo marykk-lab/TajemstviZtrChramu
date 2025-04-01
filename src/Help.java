@@ -1,4 +1,4 @@
-public class Help extends Command{
+public class Help extends Command {
     @Override
     public String execute() {
         return "Commands:\npick up - pick up an item\n" +

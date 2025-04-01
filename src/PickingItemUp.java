@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class PickingItemUp extends Command{
+public class PickingItemUp extends Command {
     @Override
     public String execute() {
         if (pickupItem())

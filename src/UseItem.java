@@ -1,7 +1,6 @@
-import javax.naming.InvalidNameException;
 import java.util.Scanner;
 
-public class UseItem extends Command{
+public class UseItem extends Command {
     Scanner sc = new Scanner(System.in);
     @Override
     public String execute() {

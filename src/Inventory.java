@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Inventory extends Command{
+public class Inventory extends Command {
     private ArrayList<Items> playersitems = new ArrayList<>();
 
 

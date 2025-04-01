@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DropItem extends Command{
+public class DropItem extends Command {
     Scanner sc = new Scanner(System.in);
     @Override
     public String execute() {
