@@ -1,8 +1,12 @@
+package Game.NPC;
+import Game.World.*;
+import Game.Command.Command;
+
 import java.util.HashMap;
 
 /**
- * The InteractionwNPC class represents a command for interacting with NPCs
- * in the game world. This command allows the player to initiate a conversation with an NPC if one is present
+ * The Game.Game.NPC.NPC.InteractionwNPC class represents a command for interacting with NPCs
+ * in the game world. This command allows the player to initiate a conversation with an Game.Game.NPC.NPC if one is present
  * in the current room.
  */
 public class InteractionwNPC extends Command {
@@ -11,7 +15,7 @@ public class InteractionwNPC extends Command {
     private World world;
 
     /**
-     * Constructs an InteractionwNPC command with the specified world context.
+     * Constructs an Game.Game.NPC.NPC.InteractionwNPC command with the specified world context.
      *
      * @param world The world in which the NPCs exist and the current room is located.
      */
@@ -22,11 +26,11 @@ public class InteractionwNPC extends Command {
     }
 
     /**
-     * Executes the interaction with an NPC by starting a conversation if an NPC is present in the current room.
-     * If no NPC is found in the current room, a message will be returned indicating that no NPCs are available
+     * Executes the interaction with an Game.Game.NPC.NPC by starting a conversation if an Game.Game.NPC.NPC is present in the current room.
+     * If no Game.Game.NPC.NPC is found in the current room, a message will be returned indicating that no NPCs are available
      * for interaction.
      *
-     * @return A string representing the NPC's dialogue or a message indicating the absence of an NPC.
+     * @return A string representing the Game.Game.NPC.NPC's dialogue or a message indicating the absence of an Game.Game.NPC.NPC.
      */
     @Override
     public String execute() {
@@ -48,9 +52,9 @@ public class InteractionwNPC extends Command {
     }
 
     /**
-     * Starts a conversatio with an NPC in the current room, if one exists.
+     * Starts a conversatio with an Game.Game.NPC.NPC in the current room, if one exists.
      *
-     * @return The dialogue text of the NPC, or null if no NPC is found in the current room.
+     * @return The dialogue text of the Game.Game.NPC.NPC, or null if no Game.Game.NPC.NPC is found in the current room.
      */
     public String startTalkingwNPC() {
         NPC npc = npcs.get(world.getCurrentRoom());

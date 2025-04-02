@@ -1,7 +1,12 @@
+package Game.Items;
+import Game.Items.*;
+import Game.World.Rooms;
+import Game.Command.Command;
+
 import java.util.Scanner;
 
 /**
- * The UseItem class represents the action of using an item in the game.
+ * The Game.Items.UseItem class represents the action of using an item in the game.
  * It allows the player to interact with their inventory and use a specific item, such as the "Torch".
  */
 public class UseItem extends Command {
@@ -43,7 +48,7 @@ public class UseItem extends Command {
     private Inventory inventory;
 
     /**
-     * Constructor to initialize the UseItem object.
+     * Constructor to initialize the Game.Items.UseItem object.
      *
      * @param inventory the player's inventory.
      */

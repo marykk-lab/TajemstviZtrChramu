@@ -1,5 +1,7 @@
+package Game.Command;
+
 /**
- * The Exit class represents a command that terminates the game.
+ * The Game.Command.Exit class represents a command that terminates the game.
  */
 public class Exit extends Command {
     /**

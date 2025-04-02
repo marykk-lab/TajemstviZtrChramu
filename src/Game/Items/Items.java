@@ -1,5 +1,7 @@
+package Game.Items;
+
 /**
- * The Items class represents an item in the game's inventory.
+ * The Game.Game.Items.Items class represents an item in the game's inventory.
  * Each item has a name and a description.
  */
 public class Items {

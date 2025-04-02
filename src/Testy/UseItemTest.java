@@ -1,4 +1,6 @@
-import static org.junit.jupiter.api.Assertions.*;
+package Testy;
+import Game.Items.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +15,7 @@ class UseItemTest {
     private UseItem useItem;
 
     /**
-     * Initializes the inventory and UseItem objects before each test case.
+     * Initializes the inventory and Game.Items.UseItem objects before each test case.
      */
     @BeforeEach
     void setUp() {
@@ -29,7 +31,7 @@ class UseItemTest {
     void testUseItem_Torch_Success() {
         Items torch = new Items("Torch", "Lights your way.");
         inventory.addItem(torch);
-        assertTrue(useItem.torch());
+        Assertions.assertTrue(useItem.torch());
     }
 
     /**
@@ -38,7 +40,7 @@ class UseItemTest {
      */
     @Test
     void testUseItem_Torch_Fail_NotInInventory() {
-        assertFalse(useItem.torch());
+        Assertions.assertFalse(useItem.torch());
     }
 
     /**
@@ -49,7 +51,7 @@ class UseItemTest {
     void testExecute_UseTorch() {
         Items torch = new Items("Torch", "Lights your way.");
         inventory.addItem(torch);
-        assertEquals("You've used torch", useItem.execute());
+        Assertions.assertEquals("You've used torch", useItem.execute());
     }
 
     /**
@@ -58,6 +60,6 @@ class UseItemTest {
      */
     @Test
     void testExecute_Fail_ItemNotExists() {
-        assertEquals("You dont have this item", useItem.execute());
+        Assertions.assertEquals("You dont have this item", useItem.execute());
     }
 }

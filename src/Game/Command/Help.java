@@ -1,5 +1,7 @@
+package Game.Command;
+
 /**
- * The Help class is a command that displays a list of available commands
+ * The Game.Command.Help class is a command that displays a list of available commands
  * to the user.
  */
 public class Help extends Command {
@@ -15,7 +17,7 @@ public class Help extends Command {
                 "inventory - look to your items\n" +
                 "use item[item] - use some item\n" +
                 "drop item[item] - drop some item from your inventory\n" +
-                "talk - talk to a NPC\n" +
+                "talk - talk to a Game.Game.NPC.NPC\n" +
                 "move - move to next or previous location\n" +
                 "solve riddle - solve a riddle\n" +
                 "stop - stop the game(dont be pussy, make it to the end)";

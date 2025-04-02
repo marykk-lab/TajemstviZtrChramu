@@ -1,5 +1,7 @@
+package Game.Command;
+
 /**
- * The Command class serves as an abstract base class for all commands in the game.
+ * The Game.Command.Game.Command class serves as an abstract base class for all commands in the game.
  */
 public abstract class Command {
     /**

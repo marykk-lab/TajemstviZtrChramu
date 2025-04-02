@@ -1,3 +1,7 @@
+package Game.World;
+
+import Game.Command.Command;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * The World class represents the game world, allowing the player to move between rooms and interact with riddles.
+ * The Game.World.World class represents the game world, allowing the player to move between rooms and interact with riddles.
  * It provides functionality for loading the room map from a file, navigating through rooms, and checking the current room.
  */
 public class World extends Command {
@@ -57,9 +61,9 @@ public class World extends Command {
     private Riddle riddle;
 
     /**
-     * Constructor to initialize the World class with the given Riddle.
+     * Constructor to initialize the Game.World.World class with the given Game.World.Riddle.
      *
-     * @param riddle the Riddle object to check if riddles are solved.
+     * @param riddle the Game.World.Riddle object to check if riddles are solved.
      */
     public World(Riddle riddle) {
         this.riddle = riddle;
@@ -129,7 +133,7 @@ public class World extends Command {
     }
 
     /**
-     * Default constructor for the World class.
+     * Default constructor for the Game.World.World class.
      */
     public World() {
     }
@@ -137,7 +141,7 @@ public class World extends Command {
     /**
      * Sets the riddle associated with the world.
      *
-     * @param riddle the Riddle object to set.
+     * @param riddle the Game.World.Riddle object to set.
      */
     public void setRiddle(Riddle riddle) {
         this.riddle = riddle;

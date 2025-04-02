@@ -1,7 +1,14 @@
+package Game.World;
+
+import Game.Command.Command;
+import Game.Items.Inventory;
+import Game.Items.Items;
+import Game.Items.PickingItemUp;
+
 import java.util.Scanner;
 
 /**
- * The Riddle class represents a command for solving riddles in the game.
+ * The Game.World.Riddle class represents a command for solving riddles in the game.
  * The player must solve different types of riddles in various rooms to proceed.
  */
 public class Riddle extends Command {
@@ -13,7 +20,7 @@ public class Riddle extends Command {
     private Scanner sc = new Scanner(System.in);
 
     /**
-     * Constructs a Riddle command with the specified world, picking item up, and inventory.
+     * Constructs a Game.World.Riddle command with the specified world, picking item up, and inventory.
      *
      * @param world The world in which the riddles are located.
      * @param pickingItemUp The command to pick up items, which might be needed to solve riddles.
@@ -34,6 +41,15 @@ public class Riddle extends Command {
     public String execute() {
         chooseRiddle();
         return "...";
+    }
+    /**
+     * Indicates that the riddle command does not exit the game or application.
+     *
+     * @return false, since solving a riddle does not terminate the game.
+     */
+    @Override
+    public boolean exit() {
+        return false;
     }
 
     /**
@@ -199,19 +215,12 @@ public class Riddle extends Command {
             }
         }
         if (answer.equals(correct)) {
-            boolean dagger = false;
-            for (Items x : inventory.getPlayersitems()) {
-                if (x.getItemName().equals("Sacrificial dagger")) {
-                    dagger = true;
-                }
-            }
-            if (dagger) {
+            if (inventory.ifItemExists("Sacrificial dagger")){
                 System.out.println("You made it, now you can move to the next room[move]");
                 return true;
-            } else {
-                System.out.println("You don't have this item, but it's correct. Come back with this item.");
-                return false;
             }
+            System.out.println("You don't have this item, but it's correct. Come back with this item.");
+            return false;
         }
         return false;
     }
@@ -233,53 +242,29 @@ public class Riddle extends Command {
             }
         }
         if (answer.equals(correct)) {
-            boolean key = false;
-            for (Items x : inventory.getPlayersitems()) {
-                if (x.getItemName().equals("Emerald key")) {
-                    key = true;
-                }
-            }
-            if (key) {
+            if (inventory.ifItemExists("Emerald key")) {
                 System.out.println("You made it, now you can move to the next room[move]");
                 pickingItemUp.addItem(new Items("Golden Relic", "The key!"));
                 return true;
-            } else {
-                System.out.println("You don't have this item, but it's correct. Come back with this item.");
-                return false;
             }
+            System.out.println("You don't have this item, but it's correct. Come back with this item.");
+            return false;
         }
         return false;
     }
 
     /**
-     * Solves the "Secret Exit" riddle where the player must have the Golden Relic.
+     * Solves the "Secret Game.Command.Exit" riddle where the player must have the Golden Relic.
      *
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean SecretExitRiddle() {
         System.out.println("You solved it!");
-        boolean relic = false;
-        for (Items x : inventory.getPlayersitems()) {
-            if (x.getItemName().equals("Golden Relic")) {
-                relic = true;
-            }
-        }
-        if (relic) {
+        if (inventory.ifItemExists("Golden Relic")){
             System.out.println("You made it, now you can move to the next room[move]");
             return true;
-        } else {
-            System.out.println("You don't have this item, but it's correct. Come back with this item.");
-            return false;
+        }
+        System.out.println("You don't have this item, but it's correct. Come back with this item.");
+        return false;
         }
     }
-
-    /**
-     * Indicates that the riddle command does not exit the game or application.
-     *
-     * @return false, since solving a riddle does not terminate the game.
-     */
-    @Override
-    public boolean exit() {
-        return false;
-    }
-}

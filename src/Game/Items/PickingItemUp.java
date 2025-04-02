@@ -1,7 +1,11 @@
+package Game.Items;
+import Game.World.World;
+import Game.Command.Command;
+
 import java.util.HashMap;
 
 /**
- * The PickingItemUp class represents the command for picking up items in the game world.
+ * The Game.Items.PickingItemUp class represents the command for picking up items in the game world.
  * It allows the player to pick up items from the current room and add them to their inventory.
  */
 public class PickingItemUp extends Command {
@@ -11,7 +15,7 @@ public class PickingItemUp extends Command {
     private Inventory inventory;
 
     /**
-     * Constructs a PickingItemUp command with the specified world and inventory.
+     * Constructs a Game.Items.PickingItemUp command with the specified world and inventory.
      * Initializes the items in various rooms of the game world.
      *
      * @param world The world wherqe the items are located.

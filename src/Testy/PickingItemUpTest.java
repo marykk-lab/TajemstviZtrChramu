@@ -1,7 +1,12 @@
-import static org.junit.jupiter.api.Assertions.*;
-
+package Testy;
+import Game.Items.Items;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import Game.World.World;
+import Game.Items.Inventory;
+import Game.Items.PickingItemUp;
+import Game.World.Riddle;
 
 /**
  * Unit tests for the {@link PickingItemUp} class.
@@ -32,9 +37,9 @@ class PickingItemUpTest {
     @Test
     void testPickupItem_Success() {
         world.nextRoom(true);
-        assertTrue(pickingItemUp.pickupItem());
-        assertEquals(1, inventory.getPlayersitems().size());
-        assertEquals("Diary of a Lost Explorer", inventory.getPlayersitems().get(0).getItemName());
+        Assertions.assertTrue(pickingItemUp.pickupItem());
+        Assertions.assertEquals(1, inventory.getPlayersitems().size());
+        Assertions.assertEquals("Diary of a Lost Explorer", inventory.getPlayersitems().get(0).getItemName());
     }
 
     /**
@@ -43,8 +48,8 @@ class PickingItemUpTest {
      */
     @Test
     void testPickupItem_Fail_NoItem() {
-        assertFalse(pickingItemUp.pickupItem());
-        assertEquals(0, inventory.getPlayersitems().size());
+        Assertions.assertFalse(pickingItemUp.pickupItem());
+        Assertions.assertEquals(0, inventory.getPlayersitems().size());
     }
 
     /**
@@ -58,8 +63,8 @@ class PickingItemUpTest {
         }
 
         world.nextRoom(true);
-        assertFalse(pickingItemUp.pickupItem());
-        assertEquals(5, inventory.getPlayersitems().size());
+        Assertions.assertFalse(pickingItemUp.pickupItem());
+        Assertions.assertEquals(5, inventory.getPlayersitems().size());
     }
 
     /**
@@ -69,7 +74,7 @@ class PickingItemUpTest {
     @Test
     void testAddItem_Success() {
         Items item = new Items("Golden Chalice", "A rare treasure");
-        assertTrue(pickingItemUp.addItem(item));
+        Assertions.assertTrue(pickingItemUp.addItem(item));
     }
 
     /**
@@ -79,6 +84,6 @@ class PickingItemUpTest {
     @Test
     void testAddItem_Fail_AlreadyExists() {
         Items item = new Items("Duplicate Item", "Should not be added");
-        assertFalse(pickingItemUp.addItem(item));
+        Assertions.assertFalse(pickingItemUp.addItem(item));
     }
 }

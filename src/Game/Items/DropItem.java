@@ -1,7 +1,11 @@
+package Game.Items;
+
+import Game.Command.Command;
+
 import java.util.Scanner;
 
 /**
- * The DropItem class represents a command to drop an item from the inventory.
+ * The Game.Game.Items.Items.DropItem class represents a command to drop an item from the inventory.
  */
 public class DropItem extends Command {
     private Scanner sc = new Scanner(System.in);
@@ -9,7 +13,7 @@ public class DropItem extends Command {
     private PickingItemUp pickingItemUp;
 
     /**
-     * Constructs a DropItem command with the given inventory and item picker.
+     * Constructs a Game.Game.Items.Items.DropItem command with the given inventory and item picker.
      *
      * @param inventory The player's inventory.
      * @param pickingItemUp The item pickup system.

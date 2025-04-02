@@ -1,8 +1,17 @@
+package Game.Command;
 import java.util.HashMap;
 import java.util.Scanner;
+import Game.Items.PickingItemUp;
+import Game.Items.Inventory;
+import Game.World.World;
+import Game.World.Riddle;
+import Game.NPC.InteractionwNPC;
+import Game.Items.DropItem;
+import Game.Items.UseItem;
+import Game.World.Rooms;
 
 /**
- * The Console class handles user input and command execution for the game.
+ * The Game.Command.Game.Command.Console class handles user input and command execution for the game.
  */
 public class Console {
     private Scanner sc = new Scanner(System.in);
@@ -14,7 +23,7 @@ public class Console {
     private Riddle riddle;
 
     /**
-     * Constructs a new Console instance, initializing game components.
+     * Constructs a new Game.Command.Game.Command.Console instance, initializing game components.
      */
     public Console() {
         this.commands = new HashMap<>();
