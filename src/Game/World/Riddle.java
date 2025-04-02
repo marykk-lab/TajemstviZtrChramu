@@ -242,9 +242,10 @@ public class Riddle extends Command {
             }
         }
         if (answer.equals(correct)) {
-            if (inventory.ifItemExists("Emerald key")) {
+            if (inventory.ifItemExists("Emerald Key")) {
                 System.out.println("You made it, now you can move to the next room[move]");
                 pickingItemUp.addItem(new Items("Golden Relic", "The key!"));
+                System.out.println("Something is in chest, it shines...[pick up].");
                 return true;
             }
             System.out.println("You don't have this item, but it's correct. Come back with this item.");
@@ -252,6 +253,7 @@ public class Riddle extends Command {
         }
         return false;
     }
+
 
     /**
      * Solves the "Secret Game.Command.Exit" riddle where the player must have the Golden Relic.
@@ -264,7 +266,7 @@ public class Riddle extends Command {
             System.out.println("You made it, now you can move to the next room[move]");
             return true;
         }
-        System.out.println("You don't have this item, but it's correct. Come back with this item.");
+        System.out.println("You dont have the needed item!");
         return false;
         }
     }

@@ -29,9 +29,9 @@ public class Console {
         this.commands = new HashMap<>();
         this.inventory = new Inventory();
         this.world = new World();
+        this.pickingItemUp = new PickingItemUp(world, inventory);
         this.riddle = new Riddle(world, pickingItemUp, inventory);
         this.world.setRiddle(riddle);
-        this.pickingItemUp = new PickingItemUp(world, inventory);
     }
 
     /**
