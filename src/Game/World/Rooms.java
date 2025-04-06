@@ -2,8 +2,18 @@ package Game.World;
 
 import Game.Command.Command;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Rooms extends Command {
     private int a=0;
+    private World world;
+
+    public Rooms(World world) {
+        this.world = world;
+    }
 
     @Override
     public String execute() {
@@ -17,18 +27,30 @@ public class Rooms extends Command {
 
     public String EntranceHall(boolean a){
         if (a){
-            return "You see walls with some texts, exit...";
+            return readRoomsTextTorch();
         }
-        return "You see darkness, but you feel something near your leg. It's torch!\n(pick up to grab it)";
+        return readRoomsTextNoTorch();
     }
 
-    public void SalwObelisks(){
+    public String SalwObelisks(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
-    public void Library(){
+    public String Library(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
-    public void TrapRoom(){
+    public String TrapRoom(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
     public void SonOfWater(){
@@ -45,8 +67,7 @@ public class Rooms extends Command {
 
     public String startGame(){
         if (a==0){
-            System.out.println("Vojta Malinek finally founds The Lost Temple. He enters and... gates are closed?? He cant open it.\n " +
-                    "Game.Command.Help Vojtech to escape from this mysterious place.\n(write help to see availble commands)");
+            readStartText();
             a++;
             return EntranceHall(false);
         }
@@ -56,13 +77,13 @@ public class Rooms extends Command {
     public boolean roomChoose(String room){
         switch (room){
             case "Sal with obelisks":
-                SalwObelisks();
+                SalwObelisks(false);
                 break;
             case "Library":
-                Library();
+                Library(false);
                 break;
             case "Trap Room":
-                TrapRoom();
+                TrapRoom(false);
                 break;
             case "Son of Water":
                 SonOfWater();
@@ -81,5 +102,54 @@ public class Rooms extends Command {
                 return false;
         }
         return true;
+    }
+
+    public boolean readStartText(){
+        try (BufferedReader br = new BufferedReader(new FileReader("startingText.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            System.out.print("\n");
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String readRoomsTextNoTorch(){
+        try (BufferedReader br = new BufferedReader(new FileReader("roomsDescriptions.txt"))){
+            ArrayList<String> array = new ArrayList<>();
+            String line;
+            while((line=br.readLine())!=null){
+                array.add(line);
+            }
+            for (String x : array){
+                if (x.startsWith("#"+world.getCurrentRoom())){
+                    return array.get(array.indexOf(x)+1);
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String readRoomsTextTorch(){
+        try(BufferedReader br = new BufferedReader(new FileReader("roomsDescriptionsWithTorch.txt"))) {
+            ArrayList<String> array = new ArrayList<>();
+            String line;
+            while((line=br.readLine())!=null){
+                array.add(line);
+            }
+            for (String x : array){
+                if (x.startsWith("#"+world.getCurrentRoom())){
+                    return array.get(array.indexOf(x)+1);
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -52,8 +52,8 @@ public class UseItem extends Command {
      *
      * @param inventory the player's inventory.
      */
-    public UseItem(Inventory inventory) {
-        this.rooms = new Rooms();
+    public UseItem(Inventory inventory, Rooms room) {
+        this.rooms = room;
         this.inventory = inventory;
     }
 

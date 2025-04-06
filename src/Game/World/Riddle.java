@@ -5,6 +5,12 @@ import Game.Items.Inventory;
 import Game.Items.Items;
 import Game.Items.PickingItemUp;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -109,7 +115,7 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean SalwObelisksRiddle() {
-        System.out.println("You see four obelisks with the symbols of the 1.Sun, 2.Moon, 3.Earth, 4.Fire.\nYou must press them in the correct order(for example: 1, 2, 3, 4)stop to end guessing.");
+        readRiddlesTexts();
         String answer = "";
         String correct = "1, 3, 2, 4";
         while (!answer.equals(correct) && !answer.equals("stop")) {
@@ -268,5 +274,29 @@ public class Riddle extends Command {
         }
         System.out.println("You dont have the needed item!");
         return false;
+    }
+
+    public boolean readRiddlesTexts(){
+        String text = null;
+        ArrayList<String> array = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader("RiddlesTexts.txt"))){
+            String line;
+            while((line=br.readLine())!=null){
+                array.add(line);
+            }
+            for (String x : array){
+                if (x.startsWith("#"+world.getCurrentRoom())){
+                    text = array.get(array.indexOf(x)+1);
+                }
+            }
+            String[] splitted_text = text.split("\\\\n");
+            for (String x : splitted_text){
+                System.out.println(x);
+            }
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
+
+}

@@ -1,5 +1,6 @@
 package Testy;
 import Game.Items.*;
+import Game.World.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,8 @@ import org.junit.jupiter.api.Test;
 class UseItemTest {
     private Inventory inventory;
     private UseItem useItem;
+    private World world;
+    private Rooms rooms = new Rooms(world);
 
     /**
      * Initializes the inventory and Game.Items.UseItem objects before each test case.
@@ -20,11 +23,11 @@ class UseItemTest {
     @BeforeEach
     void setUp() {
         inventory = new Inventory();
-        useItem = new UseItem(inventory);
+        useItem = new UseItem(inventory, rooms);
     }
 
     /**
-     * Tests the successfu use of the torch item.
+     * Tests the successful use of the torch item.
      * Verifies that the torch can be used when it is present in the inventory.
      */
     @Test

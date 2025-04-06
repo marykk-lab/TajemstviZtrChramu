@@ -21,6 +21,7 @@ public class Console {
     private Inventory inventory;
     private PickingItemUp pickingItemUp;
     private Riddle riddle;
+    private Rooms rooms;
 
     /**
      * Constructs a new Game.Command.Game.Command.Console instance, initializing game components.
@@ -32,6 +33,7 @@ public class Console {
         this.pickingItemUp = new PickingItemUp(world, inventory);
         this.riddle = new Riddle(world, pickingItemUp, inventory);
         this.world.setRiddle(riddle);
+        this.rooms = new Rooms(world);
     }
 
     /**
@@ -44,10 +46,10 @@ public class Console {
         commands.put("move", world);
         commands.put("pick up", pickingItemUp);
         commands.put("inventory", inventory);
-        commands.put("use item", new UseItem(inventory));
         commands.put("drop item", new DropItem(inventory, pickingItemUp));
         commands.put("solve riddle", riddle);
-        commands.put("start", new Rooms());
+        commands.put("start", new Rooms(world));
+        commands.put("use item", new UseItem(inventory, rooms));
     }
 
     /**

@@ -1,10 +1,4 @@
-Sal with obelisks:You see four obelisks with the symbols of the 1.Sun, 2.Moon, 3.Earth, 4.Fire.\nYou must press them in the correct order(for example: 1, 2, 3, 4)stop to end guessing.
-Library:In the middle of the room is a large stone bookcase with dusty scrolls." +
-                                "Five of them are placed on special pedestals and each has a different symbol (eye, key, sun, snake, moon).\n"+
-                            "In the middle is an old inscription:\n " +
-                            "Only he who sees the hidden will find the truth.\n Short excerpts from the scrolls:\n"+
-                            "1. Eye - Truth is hidden in darkness.\n" +
-                            "2.The Key - It opens the paths to knowledge.\n "+
-                            "3.Sun - Illuminates the mystery.\n "+
-                            "4.Snake - Creeps in the darkness, but does not reveal the way.\n"+
-                            "5.Moon - Shines in the night, but reveals no secrets.\n(Choose one of the scrolls 1-5. If you speak to some spirit, maybe he will give you a tip-write [stop], then [talk]
+#Sal with obelisks
+You see four obelisks with the symbols of the 1.Sun, 2.Moon, 3.Earth, 4.Fire.\nYou must press them in the correct order(for example: 1, 2, 3, 4)stop to end guessing.
+#Library
+In the middle of the room is a large stone bookcase with dusty scrolls." +"Five of them are placed on special pedestals and each has a different symbol (eye, key, sun, snake, moon).\n"+"In the middle is an old inscription:\n " +"Only he who sees the hidden will find the truth.\n Short excerpts from the scrolls:\n"+"1. Eye - Truth is hidden in darkness.\n" +"2.The Key - It opens the paths to knowledge.\n "+"3.Sun - Illuminates the mystery.\n "+"4.Snake - Creeps in the darkness, but does not reveal the way.\n"+"5.Moon - Shines in the night, but reveals no secrets.\n(Choose one of the scrolls 1-5. If you speak to some spirit, maybe he will give you a tip-write [stop], then [talk]

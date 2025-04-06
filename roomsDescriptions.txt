@@ -1,0 +1,4 @@
+#Entrance hall
+You see darkness, but you feel something near your leg. It's a torch! (pick up to grab it)
+#Sal with obelisks
+You see...
