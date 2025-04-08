@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * The Game.World.Riddle class represents a command for solving riddles in the game.
+ * The Riddle class represents a command for solving riddles in the game.
  * The player must solve different types of riddles in various rooms to proceed.
  */
 public class Riddle extends Command {
@@ -26,7 +26,7 @@ public class Riddle extends Command {
     private Scanner sc = new Scanner(System.in);
 
     /**
-     * Constructs a Game.World.Riddle command with the specified world, picking item up, and inventory.
+     * Constructs a Riddle command with the specified world, picking item up, and inventory.
      *
      * @param world The world in which the riddles are located.
      * @param pickingItemUp The command to pick up items, which might be needed to solve riddles.
@@ -278,21 +278,29 @@ public class Riddle extends Command {
         return false;
     }
 
-    public boolean readRiddlesTexts(){
+    /**
+     * Reads and displays riddle text for the current room from the file "RiddlesTexts.txt".
+     * Each riddle is expected to be prefixed by a line starting with "#" followed by the room name,
+     * and the actual riddle text on the next line, with "\\n" used as a delimiter for line breaks.
+     *
+     * @return true if the riddle text is found and displayed successfully, false otherwise.
+     * @throws RuntimeException if an I/O error occurs while reading the file.
+     */
+    public boolean readRiddlesTexts() {
         String text = null;
         ArrayList<String> array = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new FileReader("RiddlesTexts.txt"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("RiddlesTexts.txt"))) {
             String line;
-            while((line=br.readLine())!=null){
+            while ((line = br.readLine()) != null) {
                 array.add(line);
             }
-            for (String x : array){
-                if (x.startsWith("#"+world.getCurrentRoom())){
-                    text = array.get(array.indexOf(x)+1);
+            for (String x : array) {
+                if (x.startsWith("#" + world.getCurrentRoom())) {
+                    text = array.get(array.indexOf(x) + 1);
                 }
             }
             String[] splitted_text = text.split("\\\\n");
-            for (String x : splitted_text){
+            for (String x : splitted_text) {
                 System.out.println(x);
             }
             return true;
@@ -300,4 +308,5 @@ public class Riddle extends Command {
             throw new RuntimeException(e);
         }
     }
+
 }

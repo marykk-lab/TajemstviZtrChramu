@@ -20,7 +20,7 @@ public class Help extends Command {
                 "talk - talk to a Game.Game.NPC.NPC\n" +
                 "move - move to next or previous location\n" +
                 "solve riddle - solve a riddle\n" +
-                "stop - stop the game(dont be pussy, make it to the end)";
+                "stop - stop the game(Make it to the end!)";
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * The Game.World.World class represents the game world, allowing the player to move between rooms and interact with riddles.
+ * The World class represents the game world, allowing the player to move between rooms and interact with riddles.
  * It provides functionality for loading the room map from a file, navigating through rooms, and checking the current room.
  */
 public class World extends Command {
@@ -43,7 +43,7 @@ public class World extends Command {
             default:
                 return "Wrong choice!";
         }
-        return "You've entered " + getCurrentRoom();
+        return "You've entered " + getCurrentRoom()+"\n"+roooms.roomChoose(getCurrentRoom());
     }
 
     /**
@@ -59,14 +59,17 @@ public class World extends Command {
     private LinkedList<String> rooms = new LinkedList<>();
     private int position = 0;
     private Riddle riddle;
+    private Rooms roooms;
 
     /**
-     * Constructor to initialize the Game.World.World class with the given Game.World.Riddle.
+     * Constructor to initialize the World class with the given Riddle.
      *
-     * @param riddle the Game.World.Riddle object to check if riddles are solved.
+     * @param riddle
+     * @param roooms
      */
-    public World(Riddle riddle) {
+    public World(Riddle riddle, Rooms roooms) {
         this.riddle = riddle;
+        this.roooms = roooms;
     }
 
     /**
@@ -133,7 +136,7 @@ public class World extends Command {
     }
 
     /**
-     * Default constructor for the Game.World.World class.
+     * Default constructor for the World class.
      */
     public World() {
     }
@@ -141,9 +144,18 @@ public class World extends Command {
     /**
      * Sets the riddle associated with the world.
      *
-     * @param riddle the Game.World.Riddle object to set.
+     * @param riddle the Riddle object to set.
      */
     public void setRiddle(Riddle riddle) {
         this.riddle = riddle;
+    }
+
+    /**
+     * Sets the rooms assouciated with the world.
+     *
+     * @param roooms the Rooms object to set.
+     */
+    public void setRoooms(Rooms roooms) {
+        this.roooms = roooms;
     }
 }

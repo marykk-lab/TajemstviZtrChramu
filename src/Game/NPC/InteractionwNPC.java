@@ -10,18 +10,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * The Game.Game.NPC.NPC.InteractionwNPC class represents a command for interacting with NPCs
+ * The InteractionwNPC class represents a command for interacting with NPCs
  * in the game world. This command allows the player to initiate a conversation with an Game.Game.NPC.NPC if one is present
  * in the current room.
  */
 public class InteractionwNPC extends Command {
 
     private HashMap<String, NPC> npcs;
-    private HashMap<String, String[]> npcstexts;
     private World world;
 
     /**
-     * Constructs an Game.Game.NPC.NPC.InteractionwNPC command with the specified world context.
+     * Constructs an InteractionwNPC command with the specified world context.
      *
      * @param world The world in which the NPCs exist and the current room is located.
      */
@@ -75,20 +74,28 @@ public class InteractionwNPC extends Command {
         return false;
     }
 
-    public HashMap<String, String[]> readNPCsTexts(){
+    /**
+     * Reads NPC dialogue texts from the file "NPCstexts.txt" and stores them in a HashMap.
+     * Each NPC's name is expected to be prefixed with '#' on its own line, followed by the dialogue on the next line.
+     * Dialogues are split using the "\\n" delimiter and stored as a String array.
+     *
+     * @return a HashMap where the key is the NPC name and the value is an array of dialogue lines.
+     * @throws RuntimeException if an I/O error occurs while reading the file.
+     */
+    public HashMap<String, String[]> readNPCsTexts() {
         HashMap<String, String[]> texts = new HashMap<>();
-        try(BufferedReader br = new BufferedReader(new FileReader("NPCstexts.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("NPCstexts.txt"))) {
             String line;
             ArrayList<String> array = new ArrayList<>();
-            String text="";
-            while((line=br.readLine())!=null){
+            String text = "";
+            while ((line = br.readLine()) != null) {
                 array.add(line);
             }
-            String npcname="";
-            for (String x : array){
-                if (x.startsWith("#")){
-                    npcname=x.replace("#", "");
-                    text = array.get(array.indexOf(x)+1);
+            String npcname = "";
+            for (String x : array) {
+                if (x.startsWith("#")) {
+                    npcname = x.replace("#", "");
+                    text = array.get(array.indexOf(x) + 1);
                     String[] splitted_text = text.split("\\\\n");
                     texts.put(npcname, splitted_text);
                 }
@@ -98,4 +105,5 @@ public class InteractionwNPC extends Command {
             throw new RuntimeException(e);
         }
     }
+
 }

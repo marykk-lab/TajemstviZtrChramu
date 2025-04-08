@@ -1,5 +1,6 @@
 package Testy;
 import Game.Items.Items;
+import Game.World.Rooms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class PickingItemUpTest {
      */
     @BeforeEach
     void setUp() {
-        world = new World(new Riddle(world, pickingItemUp, inventory));
+        world = new World(new Riddle(world, pickingItemUp, inventory), new Rooms(world));
         inventory = new Inventory();
         pickingItemUp = new PickingItemUp(world, inventory);
         world.loadMap();

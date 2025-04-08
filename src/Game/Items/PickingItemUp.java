@@ -5,7 +5,7 @@ import Game.Command.Command;
 import java.util.HashMap;
 
 /**
- * The Game.Items.PickingItemUp class represents the command for picking up items in the game world.
+ * The PickingItemUp class represents the command for picking up items in the game world.
  * It allows the player to pick up items from the current room and add them to their inventory.
  */
 public class PickingItemUp extends Command {

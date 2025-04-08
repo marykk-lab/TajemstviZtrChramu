@@ -11,7 +11,7 @@ import Game.Items.UseItem;
 import Game.World.Rooms;
 
 /**
- * The Game.Command.Game.Command.Console class handles user input and command execution for the game.
+ * The Console class handles user input and command execution for the game.
  */
 public class Console {
     private Scanner sc = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Console {
     private Rooms rooms;
 
     /**
-     * Constructs a new Game.Command.Game.Command.Console instance, initializing game components.
+     * Constructs a new Console instance, initializing game components.
      */
     public Console() {
         this.commands = new HashMap<>();
@@ -34,6 +34,7 @@ public class Console {
         this.riddle = new Riddle(world, pickingItemUp, inventory);
         this.world.setRiddle(riddle);
         this.rooms = new Rooms(world);
+        this.world.setRoooms(rooms);
     }
 
     /**

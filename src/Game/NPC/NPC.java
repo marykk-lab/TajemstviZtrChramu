@@ -1,8 +1,8 @@
 package Game.NPC;
 
 /**
- * The Game.Game.NPC.NPC class represents a (Game.Game.NPC.NPC) in the game world.
- * Each Game.Game.NPC.NPC has a name and a text that represents what the Game.Game.NPC.NPC says.
+ * The NPC class represents a (NPC) in the game world.
+ * Each NPC has a name and a text that represents what the NPC says.
  */
 public class NPC {
 
@@ -10,7 +10,7 @@ public class NPC {
     private String[] text;
 
     /**
-     * Constructs a new Game.Game.NPC.NPC with the specified name and dialogue text.
+     * Constructs a new NPC with the specified name and dialogue text.
      *
      * @param NPCname The name of the Game.Game.NPC.NPC.
      * @param text The dialogue or text associated with the Game.Game.NPC.NPC.
@@ -21,36 +21,36 @@ public class NPC {
     }
 
     /**
-     * Gets the name of the Game.Game.NPC.NPC.
+     * Gets the name of the NPC.
      *
-     * @return The name of the Game.Game.NPC.NPC.
+     * @return The name of the NPC.
      */
     public String getNPCname() {
         return NPCname;
     }
 
     /**
-     * Sets the name of the Game.Game.NPC.NPC.
+     * Sets the name of the NPC.
      *
-     * @param NPCname The name to set for the Game.Game.NPC.NPC.
+     * @param NPCname The name to set for the NPC.
      */
     public void setNPCname(String NPCname) {
         this.NPCname = NPCname;
     }
 
     /**
-     * Gets the text or dialogue associated with the Game.Game.NPC.NPC.
+     * Gets the text or dialogue associated with the NPC.
      *
-     * @return The dialogue text of the Game.Game.NPC.NPC.
+     * @return The dialogue text of the NPC.
      */
     public String[] getText() {
         return text;
     }
 
     /**
-     * Sets the text or dialogue associated with the Game.Game.NPC.NPC.
+     * Sets the text or dialogue associated with the NPC.
      *
-     * @param text The text to set for the Game.Game.NPC.NPC.
+     * @param text The text to set for the NPC.
      */
     public void setText(String[] text) {
         this.text = text;

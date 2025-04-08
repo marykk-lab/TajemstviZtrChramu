@@ -5,7 +5,7 @@ import Game.Command.Command;
 import java.util.ArrayList;
 
 /**
- * The Game.Game.Items.Items.Inventory class represents the player's inventory in the game.
+ * The Inventory class represents the player's inventory in the game.
  * It allows adding, removing, and checking items within the inventory.
  */
 public class Inventory extends Command {

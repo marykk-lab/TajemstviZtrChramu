@@ -25,7 +25,7 @@ class InteractionwNPCTest {
      */
     @BeforeEach
     void setUp() {
-        world = new World(new Riddle(world, pickingItemUpl, inventory));
+        world = new World(new Riddle(world, pickingItemUpl, inventory), new Rooms(world));
         interactionwNPC = new InteractionwNPC(world);
     }
 

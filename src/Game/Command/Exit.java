@@ -1,7 +1,7 @@
 package Game.Command;
 
 /**
- * The Game.Command.Exit class represents a command that terminates the game.
+ * The Exit class represents a command that terminates the game.
  */
 public class Exit extends Command {
     /**
@@ -11,7 +11,7 @@ public class Exit extends Command {
      */
     @Override
     public String execute() {
-        return "You are pussy, come back when you are ready.\nApplication was ended";
+        return "Come back when you are ready.\nApplication was ended";
     }
 
     /**

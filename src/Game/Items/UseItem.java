@@ -4,14 +4,13 @@ import Game.World.*;
 import Game.Command.Command;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * The Game.Items.UseItem class represents the action of using an item in the game.
+ * The UseItem class represents the action of using an item in the game.
  * It allows the player to interact with their inventory and use a specific item, such as the "Torch".
  */
 public class UseItem extends Command {
@@ -98,42 +97,68 @@ public class UseItem extends Command {
         return false;
     }
 
-    public boolean SacrificialDagger(){
-        if (inventory.ifItemExists("Sacrificial dagger")){
+    /**
+     * Checks if the "Sacrificial dagger" exists in the inventory.
+     * If it does, prints a message and returns true.
+     *
+     * @return true if the item exists, false otherwise.
+     */
+    public boolean SacrificialDagger() {
+        if (inventory.ifItemExists("Sacrificial dagger")) {
             System.out.println("Keep it!You will need it for something else...");
             return true;
         }
         return false;
     }
 
-    public boolean EmeraldKey(){
-        if (inventory.ifItemExists("Emerald Key")){
+    /**
+     * Checks if the "Emerald Key" exists in the inventory.
+     * If it does, prints a message and returns true.
+     *
+     * @return true if the item exists, false otherwise.
+     */
+    public boolean EmeraldKey() {
+        if (inventory.ifItemExists("Emerald Key")) {
             System.out.println("Keep it!You will need if for something else...");
             return true;
         }
         return false;
     }
 
-    public boolean GoldenRelic(){
-        if (inventory.ifItemExists("Golden Relic")){
+    /**
+     * Checks if the "Golden Relic" exists in the inventory.
+     * If it does, prints a message and returns true.
+     *
+     * @return true if the item exists, false otherwise.
+     */
+    public boolean GoldenRelic() {
+        if (inventory.ifItemExists("Golden Relic")) {
             System.out.println("Keep it!You will need if for something else...");
             return true;
         }
         return false;
     }
 
-    public boolean Diary(){
-        if (inventory.ifItemExists("Diary of a Lost Explorer")){
-            try(BufferedReader br = new BufferedReader(new FileReader("DiaryTexts.txt"))){
+    /**
+     * Checks if the "Diary of a Lost Explorer" exists in the inventory.
+     * If it does, reads related diary text from "DiaryTexts.txt" corresponding to the current room,
+     * prints the diary content line by line, and returns true.
+     *
+     * @return true if the diary exists and text is read successfully, false otherwise.
+     * @throws RuntimeException if an I/O error occurs while reading the file.
+     */
+    public boolean Diary() {
+        if (inventory.ifItemExists("Diary of a Lost Explorer")) {
+            try (BufferedReader br = new BufferedReader(new FileReader("DiaryTexts.txt"))) {
                 String line;
                 ArrayList<String> array = new ArrayList<>();
-                String text="";
-                while((line=br.readLine())!=null){
+                String text = "";
+                while ((line = br.readLine()) != null) {
                     array.add(line);
                 }
-                for (String x : array){
-                    if (x.startsWith("#"+world.getCurrentRoom())){
-                        text = array.get(array.indexOf(x)+1);
+                for (String x : array) {
+                    if (x.startsWith("#" + world.getCurrentRoom())) {
+                        text = array.get(array.indexOf(x) + 1);
                     }
                 }
                 String[] splitted_text = text.split("\\\\n");
@@ -147,4 +172,5 @@ public class UseItem extends Command {
         }
         return false;
     }
+
 }

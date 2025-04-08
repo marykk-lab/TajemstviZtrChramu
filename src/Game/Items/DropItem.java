@@ -5,7 +5,7 @@ import Game.Command.Command;
 import java.util.Scanner;
 
 /**
- * The Game.Game.Items.Items.DropItem class represents a command to drop an item from the inventory.
+ * The DropItem class represents a command to drop an item from the inventory.
  */
 public class DropItem extends Command {
     private Scanner sc = new Scanner(System.in);
