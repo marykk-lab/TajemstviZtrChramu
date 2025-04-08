@@ -27,7 +27,6 @@ public class PickingItemUp extends Command {
         world.loadMap();
         this.items = new HashMap<>();
         items.put("Entrance hall", new Items("Torch", "Lights your way."));
-        items.put("Library", new Items("Diary of a Lost Explorer", "Diary that contains hints for puzzles"));
         items.put("Altar of Sacrifice", new Items("Emerald Key", "Some key..."));
         items.put("Son of Water", new Items("Sacrificial dagger", "Dagger for sacrificing?"));
     }
@@ -83,7 +82,7 @@ public class PickingItemUp extends Command {
     /**
      * Indicates that the picking up of an item does not exit the game or application.
      *
-     * @return false, since the pick up commnd does not exit the application.
+     * @return false, since the pick up command does not exit the application.
      */
     @Override
     public boolean exit() {

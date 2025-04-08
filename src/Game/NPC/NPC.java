@@ -7,7 +7,7 @@ package Game.NPC;
 public class NPC {
 
     private String NPCname;
-    private String text;
+    private String[] text;
 
     /**
      * Constructs a new Game.Game.NPC.NPC with the specified name and dialogue text.
@@ -15,7 +15,7 @@ public class NPC {
      * @param NPCname The name of the Game.Game.NPC.NPC.
      * @param text The dialogue or text associated with the Game.Game.NPC.NPC.
      */
-    public NPC(String NPCname, String text) {
+    public NPC(String NPCname, String[] text) {
         this.NPCname = NPCname;
         this.text = text;
     }
@@ -43,7 +43,7 @@ public class NPC {
      *
      * @return The dialogue text of the Game.Game.NPC.NPC.
      */
-    public String getText() {
+    public String[] getText() {
         return text;
     }
 
@@ -52,7 +52,7 @@ public class NPC {
      *
      * @param text The text to set for the Game.Game.NPC.NPC.
      */
-    public void setText(String text) {
+    public void setText(String[] text) {
         this.text = text;
     }
 }

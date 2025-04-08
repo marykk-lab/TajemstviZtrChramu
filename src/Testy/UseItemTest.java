@@ -23,7 +23,7 @@ class UseItemTest {
     @BeforeEach
     void setUp() {
         inventory = new Inventory();
-        useItem = new UseItem(inventory, rooms);
+        useItem = new UseItem(inventory, rooms, world);
     }
 
     /**

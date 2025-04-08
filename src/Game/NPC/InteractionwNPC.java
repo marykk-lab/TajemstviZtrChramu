@@ -2,6 +2,11 @@ package Game.NPC;
 import Game.World.*;
 import Game.Command.Command;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -12,6 +17,7 @@ import java.util.HashMap;
 public class InteractionwNPC extends Command {
 
     private HashMap<String, NPC> npcs;
+    private HashMap<String, String[]> npcstexts;
     private World world;
 
     /**
@@ -22,7 +28,9 @@ public class InteractionwNPC extends Command {
     public InteractionwNPC(World world) {
         this.world = world;
         this.npcs = new HashMap<>();
-        npcs.put("Sal with obelisks", new NPC("Guardian Spirit", "fpqwifpi"));
+        npcs.put("Sal with obelisks", new NPC("Guardian Spirit", readNPCsTexts().get("Guardian Spirit")));
+        npcs.put("Library", new NPC("The Spirit of the Priest", readNPCsTexts().get("The Spirit of the Priest")));
+        npcs.put("Son of Water", new NPC("The Keeper of the Depths", readNPCsTexts().get("The Keeper of the Depths")));
     }
 
     /**
@@ -34,8 +42,8 @@ public class InteractionwNPC extends Command {
      */
     @Override
     public String execute() {
-        if (startTalkingwNPC() != null) {
-            return startTalkingwNPC();
+        if (startTalkingwNPC()) {
+            return "You`ve talked with npc.";
         }
         return "There are no NPCs around you can talk with.";
     }
@@ -56,11 +64,38 @@ public class InteractionwNPC extends Command {
      *
      * @return The dialogue text of the Game.Game.NPC.NPC, or null if no Game.Game.NPC.NPC is found in the current room.
      */
-    public String startTalkingwNPC() {
+    public boolean startTalkingwNPC() {
         NPC npc = npcs.get(world.getCurrentRoom());
         if (npc != null) {
-            return npc.getText();
+            for (String x : npc.getText()){
+                System.out.println(x);
+            }
+            return true;
         }
-        return null;
+        return false;
+    }
+
+    public HashMap<String, String[]> readNPCsTexts(){
+        HashMap<String, String[]> texts = new HashMap<>();
+        try(BufferedReader br = new BufferedReader(new FileReader("NPCstexts.txt"))) {
+            String line;
+            ArrayList<String> array = new ArrayList<>();
+            String text="";
+            while((line=br.readLine())!=null){
+                array.add(line);
+            }
+            String npcname="";
+            for (String x : array){
+                if (x.startsWith("#")){
+                    npcname=x.replace("#", "");
+                    text = array.get(array.indexOf(x)+1);
+                    String[] splitted_text = text.split("\\\\n");
+                    texts.put(npcname, splitted_text);
+                }
+            }
+            return texts;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

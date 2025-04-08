@@ -11,7 +11,7 @@ public class Main {
      * The main method that starts the game.
      * It creates an instance of {@link Console} and invokes its {@link Console#start()} method to begin the game interaction.
      *
-     * @param args Game.Command.Game.Command-line arguments (not used in this case).
+     * @param args = arguments.
      */
     public static void main(String[] args) {
         Console c = new Console();

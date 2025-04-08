@@ -2,3 +2,15 @@
 You see darkness, but you feel something near your leg. It's a torch! (pick up to grab it)
 #Sal with obelisks
 You see...
+#Library
+You see nothing.(use torch [use item])
+#Trap Room
+You see nothing.(use torch [use item])
+#Son of Water
+You see nothing.(use torch [use item])
+#Altar of Sacrifice
+You see nothing.(use torch [use item])
+#Reliquary
+You see nothing.(use torch [use item])
+#Secret exit
+You see nothing.(use torch [use item])

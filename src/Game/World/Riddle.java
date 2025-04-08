@@ -137,7 +137,7 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean LibraryRiddle() {
-        System.out.println("In the middle of the room is a large stone bookcase with dusty scrolls...\nChoose the correct scroll based on the clues.");
+        readRiddlesTexts();
         String correct = "1";
         String answer = "";
         while (!answer.equals(correct) && !answer.equals("stop")) {
@@ -148,6 +148,8 @@ public class Riddle extends Command {
         }
         if (answer.equals(correct)) {
             System.out.println("You made it, now you can move to the next room[move]");
+            pickingItemUp.addItem(new Items("Diary of a Lost Explorer", "Diary that contains hints for puzzles"));
+            System.out.println("Something fell out from bookshelves...[pick up]");
             return true;
         }
         return false;
@@ -159,7 +161,7 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean TrapRoomRiddle() {
-        System.out.println("The floor is covered with large stone pressure plates... You must step on the correct ones.");
+        readRiddlesTexts();
         String correct = "1-2-3";
         String answer = "";
         while (!answer.equals(correct) && !answer.equals("stop")) {
@@ -182,8 +184,8 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean SonOfWaterRiddle() {
-        System.out.println("The floor is submerged... You must arrange the statues in the correct order.");
-        String correct = "3-1-2";
+        readRiddlesTexts();
+        String correct = "3-1-2-4";
         String answer = "";
         int guesses = 3;
         while (!answer.equals(correct) && !answer.equals("stop")) {
@@ -210,7 +212,7 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean AltarOfSacrificeRiddle() {
-        System.out.println("Blood is the price for those who seek passage through the past.");
+        readRiddlesTexts();
         String correct = "sacrificial dagger";
         String answer = "";
         while (!answer.toLowerCase().equals(correct) && !answer.equals("stop")) {
@@ -237,8 +239,8 @@ public class Riddle extends Command {
      * @return true if the riddle is solved correctly, false otherwise.
      */
     public boolean ReliquaryRiddle() {
-        System.out.println("A grand reliquary stands tall, protected by three chests...");
-        String correct = "3";
+        readRiddlesTexts();
+        String correct = "gold";
         String answer = "";
         while (!answer.toLowerCase().equals(correct) && !answer.equals("stop")) {
             answer = sc.nextLine();
@@ -298,5 +300,4 @@ public class Riddle extends Command {
             throw new RuntimeException(e);
         }
     }
-
 }

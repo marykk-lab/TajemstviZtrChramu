@@ -1,8 +1,13 @@
 package Game.Items;
 import Game.Items.*;
-import Game.World.Rooms;
+import Game.World.*;
 import Game.Command.Command;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -26,12 +31,32 @@ public class UseItem extends Command {
 
         switch (command) {
             case "torch":
-                torch();
-                break;
+                if (torch()){
+                    return "You've used " + command;
+                }
+            case "diary of a lost explorer":
+                boolean diary = Diary();
+                if (diary){
+                    return "You've used " + command;
+                }
+            case "sacrificial dagger":
+                boolean dagger = SacrificialDagger();
+                if (dagger){
+                    return "You've used " + command;
+                }
+            case "emerald key":
+                boolean key = EmeraldKey();
+                if (key){
+                    return "You've used " + command;
+                }
+            case "golden relic":
+                boolean relic = GoldenRelic();
+                if (relic){
+                    return "You've used " + command;
+                }
             default:
                 return "You don't have this item";
         }
-        return "You've used " + command;
     }
 
     /**
@@ -46,15 +71,17 @@ public class UseItem extends Command {
 
     private Rooms rooms;
     private Inventory inventory;
+    private World world;
 
     /**
      * Constructor to initialize the Game.Items.UseItem object.
      *
      * @param inventory the player's inventory.
      */
-    public UseItem(Inventory inventory, Rooms room) {
+    public UseItem(Inventory inventory, Rooms room, World world) {
         this.rooms = room;
         this.inventory = inventory;
+        this.world = world;
     }
 
     /**
@@ -67,6 +94,56 @@ public class UseItem extends Command {
         if (inventory.ifItemExists("Torch")) {
             System.out.println(rooms.EntranceHall(true));
             return true;
+        }
+        return false;
+    }
+
+    public boolean SacrificialDagger(){
+        if (inventory.ifItemExists("Sacrificial dagger")){
+            System.out.println("Keep it!You will need it for something else...");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean EmeraldKey(){
+        if (inventory.ifItemExists("Emerald Key")){
+            System.out.println("Keep it!You will need if for something else...");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean GoldenRelic(){
+        if (inventory.ifItemExists("Golden Relic")){
+            System.out.println("Keep it!You will need if for something else...");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean Diary(){
+        if (inventory.ifItemExists("Diary of a Lost Explorer")){
+            try(BufferedReader br = new BufferedReader(new FileReader("DiaryTexts.txt"))){
+                String line;
+                ArrayList<String> array = new ArrayList<>();
+                String text="";
+                while((line=br.readLine())!=null){
+                    array.add(line);
+                }
+                for (String x : array){
+                    if (x.startsWith("#"+world.getCurrentRoom())){
+                        text = array.get(array.indexOf(x)+1);
+                    }
+                }
+                String[] splitted_text = text.split("\\\\n");
+                for (String x : splitted_text) {
+                    System.out.println(x);
+                }
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return false;
     }

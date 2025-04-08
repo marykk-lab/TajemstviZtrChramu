@@ -49,7 +49,7 @@ public class Console {
         commands.put("drop item", new DropItem(inventory, pickingItemUp));
         commands.put("solve riddle", riddle);
         commands.put("start", new Rooms(world));
-        commands.put("use item", new UseItem(inventory, rooms));
+        commands.put("use item", new UseItem(inventory, rooms, world));
     }
 
     /**

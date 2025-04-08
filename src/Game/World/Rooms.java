@@ -53,16 +53,32 @@ public class Rooms extends Command {
         return readRoomsTextNoTorch();
     }
 
-    public void SonOfWater(){
+    public String SonOfWater(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
-    public void AltarOfSacrifice(){
+    public String AltarOfSacrifice(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
-    public void Reliquary(){
+    public String Reliquary(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
-    public void SecretExit(){
+    public String SecretExit(boolean a){
+        if (a){
+            return readRoomsTextTorch();
+        }
+        return readRoomsTextNoTorch();
     }
 
     public String startGame(){
@@ -86,16 +102,16 @@ public class Rooms extends Command {
                 TrapRoom(false);
                 break;
             case "Son of Water":
-                SonOfWater();
+                SonOfWater(false);
                 break;
             case "Altar of Sacrifice":
-                AltarOfSacrifice();
+                AltarOfSacrifice(false);
                 break;
             case "Reliquary":
-                Reliquary();
+                Reliquary(false);
                 break;
             case "Secret exit":
-                SecretExit();
+                SecretExit(false);
                 break;
             default:
                 System.out.println("Wrong room!");

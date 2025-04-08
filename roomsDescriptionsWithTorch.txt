@@ -1,4 +1,16 @@
 #Entrance hall
-You see walls with some texts, exit...
+You see walls with some texts, exit...[move]
 #Sal with obelisks
-You see...
+The torchlight reveals the stone obelisks, their carvings faintly glowing. Shadows stretch across the room, making the symbols seem almost alive, watching your every move.\n[solve riddle]
+#Library
+The torch casts light on countless dusty bookshelves. In the center of the room, a large stone sits, worn and covered in strange symbols, as if waiting for something to happen.[solve riddle]
+#Trap Room
+The torchlight reveals the stone pressure plates on the floor, each one marked with strange symbols. Shadows creep around the room, hiding the dangers that lie beneath.[solve riddle]
+#Son of Water
+The torchlight reflects off the shallow water, revealing stone statues rising from it. Near your feet, you spot a dagger lying on the floor, its blade gleaming faintly.[pick up][solve riddle]
+#Altar of Sacrifice
+The torch reveals a stone altar, its surface cold and worn. On the floor near you, a key glints in the light, almost calling to you.[pick up][solve riddle]
+#Reliquary
+The torchlight dances across the reliquary, casting shadows on the ornate chests. You notice something shiny on the floor near one chest, but it’s hard to tell what it is.[solve riddle]
+#Secret exit
+You see the EXIT???...
