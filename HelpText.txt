@@ -1,0 +1,1 @@
+Commands:\npick up - pick up an item\ninventory - look to your items\nuse item[item] - use some item\ndrop item[item] - drop some item from your inventory\ntalk - talk to a NPC\nmove - move to next or previous location\nsolve riddle - solve a riddle\nstop - stop the game(Make it to the end!)

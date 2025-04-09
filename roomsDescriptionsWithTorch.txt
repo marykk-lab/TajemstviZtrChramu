@@ -1,7 +1,7 @@
 #Entrance hall
 You see walls with some texts, exit...[move]
 #Sal with obelisks
-The torchlight reveals the stone obelisks, their carvings faintly glowing. Shadows stretch across the room, making the symbols seem almost alive, watching your every move.\n[solve riddle]
+The torchlight reveals the stone obelisks, their carvings faintly glowing. Shadows stretch across the room, making the symbols seem almost alive, watching your every move.[solve riddle]
 #Library
 The torch casts light on countless dusty bookshelves. In the center of the room, a large stone sits, worn and covered in strange symbols, as if waiting for something to happen.[solve riddle]
 #Trap Room

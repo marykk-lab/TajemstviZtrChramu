@@ -1,5 +1,10 @@
 package Game.Command;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  * The Game.Command.Help class is a command that displays a list of available commands
  * to the user.
@@ -13,14 +18,29 @@ public class Help extends Command {
      */
     @Override
     public String execute() {
-        return "Commands:\npick up - pick up an item\n" +
-                "inventory - look to your items\n" +
-                "use item[item] - use some item\n" +
-                "drop item[item] - drop some item from your inventory\n" +
-                "talk - talk to a Game.Game.NPC.NPC\n" +
-                "move - move to next or previous location\n" +
-                "solve riddle - solve a riddle\n" +
-                "stop - stop the game(Make it to the end!)";
+        readHelpText();
+        return "You ve called Help";
+    }
+
+    public boolean readHelpText() {
+        String text = null;
+        ArrayList<String> array = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("HelpText.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                array.add(line);
+            }
+            for (String x : array) {
+                text +=x;
+            }
+            String[] splitted_text = text.split("\\\\n");
+            for (String x : splitted_text) {
+                System.out.println(x);
+            }
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
