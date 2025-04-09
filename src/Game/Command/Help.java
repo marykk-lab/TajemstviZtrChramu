@@ -22,6 +22,12 @@ public class Help extends Command {
         return "You ve called Help";
     }
 
+    /**
+     * Reads and displays help text from the file "HelpText.txt".
+     *
+     * @return true if the help text is found and displayed successfully, false otherwise.
+     * @throws RuntimeException if an I/O error occurs while reading the file.
+     */
     public boolean readHelpText() {
         String text = null;
         ArrayList<String> array = new ArrayList<>();
